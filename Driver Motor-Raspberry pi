@@ -1,0 +1,16 @@
+#This will spin the wheels separately
+from gpiozero import Motor
+motor1 = Motor(4, 14)
+motor2 = Motor(17, 27)
+motor1.forward()
+
+#This code will spin two wheels at the same time
+from gpiozero import Robot
+robot = Robot((4, 14), (17, 27))
+robot.forward()
+#Need a delay between these two 
+robot.backward()
+#Turning wheels to the right
+robot.right()
+robot.left()
+robot.stop()
