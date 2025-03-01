@@ -1,0 +1,37 @@
+This only control one motor
+
+// Define motor control pins
+#define ENA 9  
+#define IN1 8  
+#define IN2 7  
+void setup() {
+    pinMode(ENA, OUTPUT);
+    pinMode(IN1, OUTPUT);
+    pinMode(IN2, OUTPUT);
+}
+
+void loop() {
+    moveForward(150);  
+    delay(2000);
+    moveBackward(150); 
+    delay(2000);
+    stopMotor();       
+    delay(1000);
+}
+
+void moveForward(int speed) {
+    digitalWrite(IN1, HIGH);
+    digitalWrite(IN2, LOW);
+    analogWrite(ENA, speed);
+}
+
+void moveBackward(int speed) {
+    digitalWrite(IN1, LOW);
+    digitalWrite(IN2, HIGH);
+    analogWrite(ENA, speed);
+}
+
+void stopMotor() {
+    digitalWrite(IN1, LOW);
+    digitalWrite(IN2, LOW);
+}
